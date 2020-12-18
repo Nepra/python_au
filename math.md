@@ -6,6 +6,7 @@
 + [Fizz Buzz](#fizz-buzz)
 + [Palindrome Number](#palindrome-number)
 + [Reverse Integer](#reverse-integer)
++ [Largest Perimeter Triangle](#largest-perimeter-triangle)
 <!---->
 ## Base 7
 
@@ -103,6 +104,20 @@ if (y > - (2 ** 31)) and (y < 2 ** 31 - 1):
     return y
 else:
     return 0
+
+```
+
+## Largest Perimeter Triangle
+
+https://leetcode.com/problems/largest-perimeter-triangle/
+
+```python
+ans = 0
+A.sort()
+for i in range (len(A) - 1, 1, -1):
+    if A[i] < A[i - 1] + A[i - 2]:
+        return A[i] + A[i - 1] + A[i - 2]
+return ans
 
 ```
 
