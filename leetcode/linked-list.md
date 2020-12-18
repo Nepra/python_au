@@ -8,6 +8,8 @@
 + [Linked List Cycle II](#linked-list-cycle-ii)
 + [Linked List Cycle](#linked-list-cycle)
 + [Intersection of Two Linked Lists](#intersection-of-two-linked-lists)
++ [Sort List](#sort-list)
++ [Reorder List](#reorder-list)
 <!---->
 ## Reverse Linked List
 
@@ -212,6 +214,84 @@ while headA != None:
     if headA == headB:
         return headA
     headA, headB = headA.next, headB.next
+return None
+```
+
+## Sort List
+
+https://leetcode.com/problems/sort-list/
+
+```python
+self.val = val
+self.next = next
+lution:
+split(self, head):
+fast = slow = head
+while fast.next and fast.next.next:
+    fast = fast.next.next
+    slow = slow.next
+slow.next, slow = None, slow.next
+return head, slow
+mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
+head = temp = ListNode()
+while l1 != None and l2 != None:
+    if l1.val < l2.val:
+        temp.next = l1
+        l1 = l1.next
+    else:
+        temp.next = l2
+        l2 = l2.next
+    temp = temp.next
+temp.next = l1 or l2
+return head.next
+sortList(self, head: ListNode) -> ListNode:
+if head == None:
+    return None
+if head.next == None:
+    return head
+l1, l2 = self.split(head)
+l1 = self.sortList(l1)
+l2 = self.sortList(l2)
+return self.mergeTwoLists(l1, l2)
+```
+
+## Reorder List
+
+https://leetcode.com/problems/reorder-list/
+
+```python
+self.val = val
+self.next = next
+lution:
+reverseList(self, head: ListNode) -> ListNode:
+if head == None or head.next == None:
+    return head
+prev = None
+while head != None:
+    cur = head
+    head = head.next
+    cur.next = prev
+    prev = cur
+return prev
+reorderList(self, head: ListNode) -> None:
+if head == None or head.next == None or head.next.next == None:
+    return None
+slow = head
+fast = head
+while fast.next != None and fast.next.next != None:
+    slow = slow.next
+    fast = fast.next.next
+l1 = head
+l2 = slow.next
+slow.next = None
+l2 = self.reverseList(l2)
+while l2 != None:
+    l1Next = l1.next
+    l2Next = l2.next
+    l1.next = l2
+    l2.next = l1Next
+    l1 = l1Next
+    l2 = l2Next
 return None
 ```
 
