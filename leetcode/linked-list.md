@@ -4,6 +4,9 @@
 + [Middle of the Linked List](#middle-of-the-linked-list)
 + [Palindrome Linked List](#palindrome-linked-list)
 + [Merge Two Sorted Lists](#merge-two-sorted-lists)
++ [Remove Nth Node From End of List](#remove-nth-node-from-end-of-list)
++ [Linked List Cycle II](#linked-list-cycle-ii)
++ [Linked List Cycle](#linked-list-cycle)
 <!---->
 ## Reverse Linked List
 
@@ -102,5 +105,82 @@ while l1 != None and l2 != None:
     temp = temp.next
 temp.next = l1 or l2
 return head.next
+```
+
+## Remove Nth Node From End of List
+
+https://leetcode.com/problems/remove-nth-node-from-end-of-list/
+
+```python
+self.val = val
+self.next = next
+lution:
+removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
+forward = head
+if forward.next == None:
+    return None
+for i in range (n - 1):
+    forward = forward.next
+if forward.next == None:
+    return head.next
+forward = forward.next
+back = head
+while forward.next != None:
+    forward = forward.next
+    back = back.next
+back.next = back.next.next
+return head
+```
+
+## Linked List Cycle II
+
+https://leetcode.com/problems/linked-list-cycle-ii/
+
+```python
+self.val = x
+self.next = None
+lution:
+detectCycle(self, head: ListNode) -> ListNode:
+if head == None:
+    return None
+curTail = head
+curLen = 1
+while True:
+    curMid = head
+    for i in range(curLen - 1):
+        if curMid == curTail:
+            return curMid
+        curMid = curMid.next
+    curTail = curTail.next
+    curLen += 1
+    if curTail == None:
+        return None
+```
+
+## Linked List Cycle
+
+https://leetcode.com/problems/linked-list-cycle/
+
+```python
+self.val = x
+self.next = None
+lution:
+detectCycle(self, head: ListNode) -> ListNode:
+if head == None:
+    return None
+curTail = head
+curLen = 1
+while True:
+    curMid = head
+    for i in range(curLen - 1):
+        if curMid == curTail:
+            return curMid
+        curMid = curMid.next
+    curTail = curTail.next
+    curLen += 1
+    if curTail == None:
+        return None
+hasCycle(self, head: ListNode) -> bool:
+return self.detectCycle(head) != None
 ```
 
