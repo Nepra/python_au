@@ -7,6 +7,7 @@
 + [Remove Nth Node From End of List](#remove-nth-node-from-end-of-list)
 + [Linked List Cycle II](#linked-list-cycle-ii)
 + [Linked List Cycle](#linked-list-cycle)
++ [Intersection of Two Linked Lists](#intersection-of-two-linked-lists)
 <!---->
 ## Reverse Linked List
 
@@ -182,5 +183,35 @@ while True:
         return None
 hasCycle(self, head: ListNode) -> bool:
 return self.detectCycle(head) != None
+```
+
+## Intersection of Two Linked Lists
+
+https://leetcode.com/problems/intersection-of-two-linked-lists/
+
+```python
+self.val = x
+self.next = None
+lution:
+lenList(self, head: ListNode) -> int:
+n = 0
+while head != None:
+    n += 1
+    head = head.next
+return n
+getIntersectionNode(self, headA: ListNode, headB: ListNode) -> ListNode:
+firstlen = self.lenList(headA)
+secondlen = self.lenList(headB)
+if firstlen > secondlen:
+    for i in range(firstlen - secondlen):
+        headA = headA.next
+else:
+    for i in range(secondlen - firstlen):
+        headB = headB.next
+while headA != None:
+    if headA == headB:
+        return headA
+    headA, headB = headA.next, headB.next
+return None
 ```
 
