@@ -4,6 +4,9 @@
 + [Reshape the Matrix](#reshape-the-matrix)
 + [Image Smoother](#image-smoother)
 + [Flipping an Image](#flipping-an-image)
++ [Transpose Matrix](#transpose-matrix)
++ [Move Zeroes](#move-zeroes)
++ [Squares of a Sorted Array](#squares-of-a-sorted-array)
 <!---->
 ## Max Consecutive Ones
 
@@ -74,5 +77,43 @@ for row in A:
     for i in range ((len(A[0]) + 1) // 2):
         row[i], row[-i-1] = (row[-i-1] + 1) % 2, (row[i] + 1) % 2
 return A
+```
+
+## Transpose Matrix
+
+https://leetcode.com/problems/transpose-matrix/
+
+```python
+r, c = len(A), len(A[0])
+B = [[None] * r for k in range(c)]
+for i, row in enumerate(A):
+    for j, val in enumerate(row):
+        B[j][i] = val
+return B
+```
+
+## Move Zeroes
+
+https://leetcode.com/problems/move-zeroes/
+
+```python
+lastNonZero = 0
+for i in range(len(nums)):
+    if nums[i] != 0:
+        nums[lastNonZero] = nums[i]
+        lastNonZero += 1
+for i in range(lastNonZero, len(nums)):
+    nums[i] = 0
+```
+
+## Squares of a Sorted Array
+
+https://leetcode.com/problems/squares-of-a-sorted-array/
+
+```python
+for i in range (len(nums)):
+    nums[i] = nums[i] * nums[i]
+nums.sort()
+return nums
 ```
 
