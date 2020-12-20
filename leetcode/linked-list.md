@@ -16,10 +16,6 @@
 https://leetcode.com/problems/reverse-linked-list/
 
 ```python
-self.val = val
-self.next = next
-lution:
-reverseList(self, head: ListNode) -> ListNode:
 if head == None or head.next == None:
     return head
 prev = None
@@ -36,10 +32,6 @@ return prev
 https://leetcode.com/problems/middle-of-the-linked-list/
 
 ```python
-self.val = val
-self.next = next
-lution:
-middleNode(self, head: ListNode) -> ListNode:
 if head.next == None:
     return head
 slow = head
@@ -57,10 +49,6 @@ return slow
 https://leetcode.com/problems/palindrome-linked-list/
 
 ```python
-self.val = val
-self.next = next
-lution:
-reverseList(self, head: ListNode) -> ListNode:
 if head == None or head.next == None:
     return head
 prev = None
@@ -93,10 +81,6 @@ return True
 https://leetcode.com/problems/merge-two-sorted-lists/
 
 ```python
-self.val = val
-self.next = next
-lution:
-mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
 head = temp = ListNode()
 while l1 != None and l2 != None:
     if l1.val < l2.val:
@@ -115,10 +99,6 @@ return head.next
 https://leetcode.com/problems/remove-nth-node-from-end-of-list/
 
 ```python
-self.val = val
-self.next = next
-lution:
-removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
 forward = head
 if forward.next == None:
     return None
@@ -140,10 +120,6 @@ return head
 https://leetcode.com/problems/linked-list-cycle-ii/
 
 ```python
-self.val = x
-self.next = None
-lution:
-detectCycle(self, head: ListNode) -> ListNode:
 if head == None:
     return None
 curTail = head
@@ -165,10 +141,6 @@ while True:
 https://leetcode.com/problems/linked-list-cycle/
 
 ```python
-self.val = x
-self.next = None
-lution:
-detectCycle(self, head: ListNode) -> ListNode:
 if head == None:
     return None
 curTail = head
@@ -192,9 +164,6 @@ return self.detectCycle(head) != None
 https://leetcode.com/problems/intersection-of-two-linked-lists/
 
 ```python
-self.val = x
-self.next = None
-lution:
 lenList(self, head: ListNode) -> int:
 n = 0
 while head != None:
@@ -222,9 +191,6 @@ return None
 https://leetcode.com/problems/sort-list/
 
 ```python
-self.val = val
-self.next = next
-lution:
 split(self, head):
 fast = slow = head
 while fast.next and fast.next.next:
@@ -260,9 +226,6 @@ return self.mergeTwoLists(l1, l2)
 https://leetcode.com/problems/reorder-list/
 
 ```python
-self.val = val
-self.next = next
-lution:
 reverseList(self, head: ListNode) -> ListNode:
 if head == None or head.next == None:
     return head
