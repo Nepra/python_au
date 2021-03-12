@@ -26,7 +26,7 @@ class MdSource:
 def read_txt(filename):
     with open(filename) as f:
         data = f.readlines()
-    res = [data[0], data[1].strip("\n"), "".join(map(lambda x: x[8::], data[6::]))]
+    res = [data[0], data[1].strip("\n"), "".join(map(lambda x: x[4::], data[5::]))]
     return res
 
 
